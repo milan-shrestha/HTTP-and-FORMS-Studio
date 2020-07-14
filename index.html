@@ -3,10 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
+	
+		function setSearchEngine() {
+
+			let actions = {
+			"google": "https://www.google.com/search",
+			"duckDuckGo": "https://www.duckduckgo.com",
+			"bing": "https://www.bing.com/search",
+			"ask": "https://www.ask.com/web"
+		};
+
+			let form = document.getElementById("searchForm");
+			let selectedSearchEngine = document.querySelector("input[name=engine]:checked");
+			let action = actions[selectedSearchEngine.value];
+			form.setAttribute("action", action);
+		}
+
+		window.addEventListener("load", function(){
+
+			let form = document.getElementById("searchForm");
+			form.addEventListener("submit", setSearchEngine);
+		});
 	</script>
 </head>
 
