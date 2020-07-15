@@ -12,11 +12,31 @@
 			"bing": "https://www.bing.com/search",
 			"ask": "https://www.ask.com/web"
 		};
+		
+			validateUserInput();
 
-			let form = document.getElementById("searchForm");
+			if(true) {
+				let form = document.getElementById("searchForm");
+				let selectedSearchEngine = document.querySelector("input[name=engine]:checked");
+				let action = actions[selectedSearchEngine.value];
+				form.setAttribute("action", action);
+			};
+		}
+
+		function validateUserInput(event) {
+
+			let searchText = document.querySelector("input[name=q]");
 			let selectedSearchEngine = document.querySelector("input[name=engine]:checked");
-			let action = actions[selectedSearchEngine.value];
-			form.setAttribute("action", action);
+
+			if (searchText.value === "") {
+				alert("Please enter your search word or term.");
+				event.preventDefault();
+			} else if (selectedSearchEngine === null) {
+				alert("Please select your choice of search engine.");
+				event.preventDefault();
+			} else {
+				return true;
+			}
 		}
 
 		window.addEventListener("load", function(){
