@@ -2,84 +2,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<style>
-		body {
-			text-align: center;
-			background-color: #fff;
-		}
-		fieldset {
-			display: inline-block;
-			margin-top: 15%;
-			padding: 100px;
-			border-radius: 10px;
-			border-width: 0px;
-			background-color: #1DA1F2;
-		}
-		label {
-			margin-right: 15px;
-			font-size: 1.5em;
-			color: #fff;
-		}
-		#text-area {
-			margin-right: 15px;
-			width: 300px;
-			height: 35px;
-			border-radius: 10px;
-			border-width: 0px;
-		}
-		#submit-button {
-			font-size: 1.5em;
-			padding: 5px 25px;
-			background-color: green;
-			color: white;
-			border-radius: 5px;
-			border-width: 0px;
-		}
-	</style>
-	
-	<script>
-	
-		function setSearchEngine() {
-
-			let actions = {
-			"google": "https://www.google.com/search",
-			"duckDuckGo": "https://www.duckduckgo.com",
-			"bing": "https://www.bing.com/search",
-			"ask": "https://www.ask.com/web"
-		};
-
-			validateUserInput();
-
-			if(true) {
-				let form = document.getElementById("searchForm");
-				let selectedSearchEngine = document.querySelector("input[name=engine]:checked");
-				let action = actions[selectedSearchEngine.value];
-				form.setAttribute("action", action);
-			};
-		}
-
-		function validateUserInput(event) {
-
-			let searchText = document.querySelector("input[name=q]");
-			let selectedSearchEngine = document.querySelector("input[name=engine]:checked");
-
-			if (searchText.value === "") {
-				alert("Please enter your search word or term.");
-				event.preventDefault();
-			} else if (selectedSearchEngine === null) {
-				alert("Please select your choice of search engine.");
-				event.preventDefault();
-			} else {
-				return true;
-			}
-		}
-
-		window.addEventListener("load", function(){
-
-			let form = document.getElementById("searchForm");
-			form.addEventListener("submit", setSearchEngine);
-		});
-	</script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
